@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form demande -->
+        <record id="etudiant_form_view" model="ir.ui.view">
+            <field name="name">gs.etudiant.form</field>
+            <field name="model">gs.etudiant</field>
+            <field name="arch" type="xml">
+                <form string="etudiant" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="info sur etudiant">
+                                <group>
+                                    <field name="name" />
+                                    <field name="niveau" />
+                                    <field name="filiere" />
+									<field name="email" />
+									<field name="date_inscription" />
+									
+									 
+                                   
+                                </group>
+                            </page>
+							  <page string="info de demande">
+                                <group>
+                                    <field name="ref_demande" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree demande -->
+        <record id="etudiant_tree_view" model="ir.ui.view">
+            <field name="name">gs.etudiant.tree</field>
+            <field name="model">gs.etudiant</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="etudiant">
+				
+                                <field name="id" />
+                                <field name="name" />
+                                <field name="niveau" />
+                                <field name="filiere" />
+								<field name="email" />
+								<field name="date_inscription" />
+                   
+                </tree>
+            </field>
+        </record>
+        <!-- view action demande -->
+        <record id="action_etudiant" model="ir.actions.act_window">
+            <field name="name">Action etudiant</field>
+            <field name="res_model">gs.etudiant</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+<!--Search View for Personnel Information -->
+<record id="gs_etudiant_search_view" model="ir.ui.view">
+    <field name="name">gs.etudiant.view</field>
+    <field name="model">gs.etudiant</field>
+    <field name="arch" type="xml">
+    <search string="Informations sur etudiant" >
+        <field name="id" />
+        <field name="name" />
+        <field name="niveau" />
+        <field name="filiere" />
+        <field name="email" />
+        <field name="date_inscription" />
+    <group expand="0" string="Group By">
+    <filter name="groupby_name" string="name" domain="[]"
+    context="{'group_by':'name'}" help="Grouper par name" />
+    <filter name="groupby_niveau" context="{'group_by':'niveau'}" string="niveau"
+    help="Grouper par niveau" />
+    </group>
+    <filter name="groupby_etudiant_filiere" context="{'group_by': 'filiere'}" string="etudiant" help="Grouper par filiere" />
+    </search>
+    </field>
+    
+    </record>
+        <menuitem id="gestion_de_scolarite" name="gestion de scolarite" />
+        <menuitem name="inscription" id="section_main_menu_inscription" parent="gestion_de_scolarite" sequence="1" />
+        <menuitem id="etudiant_action" name="etudiant" parent="section_main_menu_inscription" action="action_etudiant" sequence="4" />
+    </data>
+</openerp>

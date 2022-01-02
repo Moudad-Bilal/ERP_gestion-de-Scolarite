@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form-->
+        <record id="exam_form_view" model="ir.ui.view">
+            <field name="name">gs.exam.form</field>
+            <field name="model">gs.exam</field>
+            <field name="arch" type="xml">
+                <form string="exam" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="info la exam">
+                                <group>
+                                    <field name="id" />
+									 <field name="module" />
+									  <field name="salle" />
+									  <!-- <field name="ref_prof" />									   -->
+									    <field name="ref_classe" />
+									   <field name="date" />
+									    <field name="dure" />
+                                        <field name="prof" />
+                                       
+
+                                    
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree-->
+        <record id="exam_tree_view" model="ir.ui.view">
+            <field name="name">gs.exam.tree</field>
+            <field name="model">gs.exam</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="exam">
+                    <field name="id" />
+									 <field name="module" />
+									  <field name="salle" />
+                                      <field name="prof" />
+									  <!-- <field name="ref_prof" /> -->
+									<field name="ref_classe" />
+									   <field name="date" />
+									    <field name="dure" />
+           
+                </tree>
+            </field>
+        </record>
+		<!--calendar des examens-->
+		<record id="gs_exam_calendar" model="ir.ui.view">
+<field name="name">gs.exam.calendar</field>
+<field name="model">gs.exam</field>
+<field name="arch" type="xml">
+<calendar color="module" date_delay="dure" date_start="date"
+string="Examen" mode="week">
+<field name="module"/>
+ 
+ <field name="salle" />
+ <field name="prof" />
+<field name="date"/>
+ <field name="dure" />
+</calendar>
+</field>
+</record>
+        <!-- view action-->
+        <record id="action_exam" model="ir.actions.act_window">
+            <field name="name">Action exam</field>
+            <field name="res_model">gs.exam</field>
+			   <field name="view_type">form</field>
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+
+        <!-- menuitem -->
+        <!--<menuitem id="gestion_de_scolarite" name="gestion de scolarite" />-->
+        <menuitem name="gestion des examens" id="examen" parent="gestion_de_scolarite" sequence="1" />
+        <menuitem id="exam_action" name="exam" parent="examen" action="action_exam" sequence="4" />
+
+    </data>
+</openerp>

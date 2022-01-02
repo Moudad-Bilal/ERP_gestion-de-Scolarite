@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form emploi-->
+        <record id="emploi_form_view" model="ir.ui.view">
+            <field name="name">gs.emploi.form</field>
+            <field name="model">gs.emploi</field>
+            <field name="arch" type="xml">
+                <form string="emploi" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="info sur la emploi">
+                                <group>
+                                    
+									 <field name="emploi" />
+                                     <field name="date" />
+								
+                                    
+                                </group>
+                            </page>
+                    
+                       
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree brand -->
+        <record id="emploi_tree_view" model="ir.ui.view">
+            <field name="name">gs.emploi.tree</field>
+            <field name="model">gs.emploi</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="emploi">
+                     
+									 <field name="emploi" />
+                                     <field name="date" />
+									  
+           
+                </tree>
+            </field>
+        </record>
+        <!-- view action brand -->
+        <record id="action_emploi" model="ir.actions.act_window">
+            <field name="name">Action emploi</field>
+            <field name="res_model">gs.emploi</field>
+        </record>
+
+        <!-- menuitem -->
+        <!--<menuitem id="gestion_de_scolarite" name="gestion de scolarite" />-->
+         <menuitem name="gestion des examens" id="examen" parent="gestion_de_scolarite" sequence="1" />
+        <menuitem id="emploi_action" name="emploi" parent="examen" action="action_emploi" sequence="4" />
+
+    </data>
+</openerp>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form brand -->
+        <record id="classe_form_view" model="ir.ui.view">
+            <field name="name">gs.classe.form</field>
+            <field name="model">gs.classe</field>
+            <field name="arch" type="xml">
+                <form string="classe" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="info sur la classe">
+                                <group>
+                                    
+									 <field name="niveau" />
+									  <field name="filiere" />
+									
+                                      <field name="ref_emploi" />
+									   
+                                    
+                                </group>
+                            </page>
+                    
+                        <page string="info de emploi">
+                          <group>
+                              <field name="ref_emploi" />
+                          </group>
+                      </page>
+
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree brand -->
+        <record id="classe_tree_view" model="ir.ui.view">
+            <field name="name">gs.classe.tree</field>
+            <field name="model">gs.classe</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="classe">
+                     
+									 <field name="niveau" />
+									  <field name="filiere" />
+									 
+                                      <field name="ref_emploi" />
+           
+                </tree>
+            </field>
+        </record>
+        <!-- view action brand -->
+        <record id="action_classe" model="ir.actions.act_window">
+            <field name="name">Action classe</field>
+            <field name="res_model">gs.classe</field>
+        </record>
+
+        <!-- menuitem -->
+        <!--<menuitem id="gestion_de_scolarite" name="gestion de scolarite" />-->
+         <menuitem name="gestion des examens" id="examen" parent="gestion_de_scolarite" sequence="1" />
+        <menuitem id="classe_action" name="classe" parent="examen" action="action_classe" sequence="4" />
+
+    </data>
+</openerp>

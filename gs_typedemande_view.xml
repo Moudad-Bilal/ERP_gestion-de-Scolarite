@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form brand -->
+        <record id="typedemande_form_view" model="ir.ui.view">
+            <field name="name">gs.typedemande.form</field>
+            <field name="model">gs.typedemande</field>
+            <field name="arch" type="xml">
+                <form string="typedemande" version="7.0">
+                    <sheet>
+                        <notebook>
+                            <page string="info sur type demande">
+                                <group>
+                                    <field name="id" />
+									 <field name="name" />
+									
+
+                                    
+                                </group>
+                            </page>
+							
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree brand -->
+        <record id="typedemande_tree_view" model="ir.ui.view">
+            <field name="name">gs.typedemande.tree</field>
+            <field name="model">gs.typedemande</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="type demande">
+                   
+									  <field name="id" />
+									 <field name="name" />
+									 
+           
+                </tree>
+            </field>
+        </record>
+        <!-- view action brand -->
+        <record id="action_typedemande" model="ir.actions.act_window">
+            <field name="name">Action typedemande</field>
+            <field name="res_model">gs.typedemande</field>
+        </record>
+
+        <!-- menuitem -->
+        <!--<menuitem id="gestion_de_scolarite" name="gestion de scolarite" />-->
+	<menuitem name="inscription" id="section_main_menu_inscription" parent="gestion_de_scolarite" sequence="1" />
+        <menuitem id="typedemande_action" name="type demande" parent="section_main_menu_inscription" action="action_typedemande" sequence="4" />
+
+    </data>
+</openerp>

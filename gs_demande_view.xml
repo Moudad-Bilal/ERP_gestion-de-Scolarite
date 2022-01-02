@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <!-- record form demande -->
+        <record id="demande_form_view" model="ir.ui.view">
+            <field name="name">gs.demande.form</field>
+            <field name="model">gs.demande</field>
+            <field name="arch" type="xml">
+                <form string="demande" version="7.0">
+				
+                    <sheet>
+                        <notebook>
+                            <page string="info sur le demande">
+                                <group>
+                                    <field name="id" />
+                                    <field name="ref_typedemande" />
+                                    <field name="date" />
+                                    <field name="ref_etudiant" />
+                                    <field name="reponse" />
+								
+                                   
+                                </group>
+                            </page>
+							  <page string="info sur type demande">
+                                <group>
+                                    <field name="ref_typedemande" />
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- view tree demande -->
+        <record id="demande_tree_view" model="ir.ui.view">
+            <field name="name">gs.demande.tree</field>
+            <field name="model">gs.demande</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="demande">
+				<field name="id" />
+                                <field name="ref_typedemande" />
+                                <field name="date" />
+                                <field name="ref_etudiant" />
+                                <field name="reponse" />
+                   
+                </tree>
+            </field>
+        </record>
+        <!-- view action demande -->
+        <record id="action_demande" model="ir.actions.act_window">
+            <field name="name">Action demande</field>
+            <field name="res_model">gs.demande</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="gestion_de_scolarite" name="gestion de scolarite" />
+        <menuitem name="inscription" id="section_main_menu_inscription" parent="gestion_de_scolarite" sequence="1" />
+        <menuitem id="demande_action" name="demande" parent="section_main_menu_inscription" action="action_demande" sequence="4" />
+    </data>
+</openerp>
